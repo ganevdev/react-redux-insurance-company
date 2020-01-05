@@ -6,7 +6,9 @@ const policies = (listOfPolicies = [], action) => {
     case CREATE_POLICY:
       return [...listOfPolicies, action.payload.name];
     case DELETE_POLICY:
-      return listOfPolicies.filter((policy) => policy !== action.payload.name);
+      return listOfPolicies.filter((policy) => {
+        return policy.name !== action.payload.name.name;
+      });
     default:
       return listOfPolicies;
   }
