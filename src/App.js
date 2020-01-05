@@ -4,8 +4,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
+import CreateClaimFormContainer from './containers/CreateClaimFormContainer';
 import CreatePolicyFormContainer from './containers/CreatePolicyFormContainer';
-import DeletePolicyFormContainer from './containers/DeletePolicyContainer';
+import DeletePolicyFormContainer from './containers/DeletePolicyFormContainer';
 import MainInfoContainer from './containers/MainInfoContainer';
 import reducers from './reducers';
 
@@ -22,6 +23,7 @@ const App = () => {
         <MainInfoContainer />
         <CreatePolicyFormContainer />
         <DeletePolicyFormContainer />
+        <CreateClaimFormContainer />
       </div>
     </Provider>
   );
