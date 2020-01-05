@@ -5,7 +5,7 @@ const styleForInfoCard = {
   padding: 10,
 };
 
-class Main extends Component {
+class MainInfo extends Component {
   render() {
     const { accounting, claimsHistory, policies } = this.props;
     return (
@@ -19,9 +19,10 @@ class Main extends Component {
           <h2 style={styleForInfoCard}>claims history: {claimsHistory}</h2>
           <h2 style={styleForInfoCard}>policies: {policies}</h2>
         </div>
+        <div></div>
       </main>
     );
   }
 }
 
-export default Main;
+export default MainInfo;

@@ -5,7 +5,7 @@ import {
   createPolicy,
   deletePolicy,
 } from '../actions/insurance-actions';
-import Main from '../components/Main';
+import MainInfo from '../components/MainInfo';
 
 const mapStateToProps = (state) => {
   return {
@@ -21,6 +21,9 @@ const mapDispatchToProps = {
   deletePolicy,
 };
 
-const MainContainer = connect(mapStateToProps, mapDispatchToProps)(Main);
+const MainInfoContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainInfo);
 
-export default MainContainer;
+export default MainInfoContainer;

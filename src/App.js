@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import MainContainer from './containers/MainContainer';
+import MainInfoContainer from './containers/MainInfoContainer';
 import reducers from './reducers';
 
 const store = createStore(
@@ -17,7 +17,7 @@ const App = () => {
     <Provider store={store}>
       <div className="App">
         <h1>React Redux Insurance Company</h1>
-        <MainContainer />
+        <MainInfoContainer />
       </div>
     </Provider>
   );
