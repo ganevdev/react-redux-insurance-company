@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import CreatePolicyForm from './containers/CreatePolicyForm';
+import CreatePolicyFormContainer from './containers/CreatePolicyFormContainer';
 import MainInfoContainer from './containers/MainInfoContainer';
 import reducers from './reducers';
 
@@ -19,7 +19,7 @@ const App = () => {
       <div className="App">
         <h1>React Redux Insurance Company</h1>
         <MainInfoContainer />
-        <CreatePolicyForm />
+        <CreatePolicyFormContainer />
       </div>
     </Provider>
   );
