@@ -1,15 +1,24 @@
 import { connect } from 'react-redux';
 
-import { decrement, increment } from '../actions/main-actions';
+import {
+  createClaim,
+  createPolicy,
+  deletePolicy,
+} from '../actions/insurance-actions';
 import Main from '../components/Main';
 
 const mapStateToProps = (state) => {
-  return state.mainReducer;
+  return {
+    accounting: state.accounting,
+    claimsHistory: state.claimsHistory,
+    policies: state.policies,
+  };
 };
 
 const mapDispatchToProps = {
-  increment,
-  decrement,
+  createClaim,
+  createPolicy,
+  deletePolicy,
 };
 
 const MainContainer = connect(mapStateToProps, mapDispatchToProps)(Main);

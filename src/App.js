@@ -16,9 +16,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <div className="App">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>React Redux Insurance Company</h1>
         <MainContainer />
       </div>
     </Provider>

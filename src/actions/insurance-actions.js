@@ -2,6 +2,9 @@ export const CREATE_CLAIM = 'CREATE_CLAIM';
 export const CREATE_POLICY = 'CREATE_POLICY';
 export const DELETE_POLICY = 'DELETE_POLICY';
 
+/**
+ * createClaim
+ */
 export const createClaim = (name, amountOfManyToCollect) => {
   return {
     type: CREATE_CLAIM,
@@ -12,6 +15,9 @@ export const createClaim = (name, amountOfManyToCollect) => {
   };
 };
 
+/**
+ * createPolicy
+ */
 export const createPolicy = (name) => {
   return {
     type: CREATE_POLICY,
@@ -22,6 +28,9 @@ export const createPolicy = (name) => {
   };
 };
 
+/**
+ * deletePolicy
+ */
 export const deletePolicy = (name) => {
   return {
     type: DELETE_POLICY,
