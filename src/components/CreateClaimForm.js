@@ -15,8 +15,14 @@ const CreateClaimForm = () => {
 
   return (
     <div>
-      <h2>Create Claim Form</h2>
-      <form onSubmit={handleSubmit}>
+      <h4>Create Claim Form</h4>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
         <input
           onChange={(e) => setName(e.target.value)}
           name="name"

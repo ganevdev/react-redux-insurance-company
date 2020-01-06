@@ -14,8 +14,14 @@ const DeletePolicyForm = () => {
 
   return (
     <div>
-      <h2>Delete Policy Form</h2>
-      <form onSubmit={handleSubmit}>
+      <h4>Delete Policy Form</h4>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
         <input
           onChange={(e) => setName(e.target.value)}
           name="name"
