@@ -4,10 +4,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
+import DeletePolicyForm from './components/DeletePolicyForm';
+import MainInfo from './components/MainInfo';
 import CreateClaimFormContainer from './containers/CreateClaimFormContainer';
 import CreatePolicyFormContainer from './containers/CreatePolicyFormContainer';
-import DeletePolicyFormContainer from './containers/DeletePolicyFormContainer';
-import MainInfoContainer from './containers/MainInfoContainer';
 import reducers from './reducers';
 
 const store = createStore(
@@ -20,9 +20,9 @@ const App = () => {
     <Provider store={store}>
       <div className="App">
         <h1>React Redux Insurance Company</h1>
-        <MainInfoContainer />
+        <MainInfo />
         <CreatePolicyFormContainer />
-        <DeletePolicyFormContainer />
+        <DeletePolicyForm />
         <CreateClaimFormContainer />
       </div>
     </Provider>

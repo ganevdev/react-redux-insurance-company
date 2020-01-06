@@ -1,46 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-class DeletePolicyForm extends Component {
-  state = {
-    name: '',
-  };
+const DeletePolicyForm = () => {
+  const [name, setName] = useState('');
+  const dispatch = useDispatch();
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
-
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    const { deletePolicy } = this.props;
-
-    if (deletePolicy) deletePolicy(this.state);
-
-    this.setState({
-      name: '',
-    });
+    dispatch({ type: 'DELETE_POLICY', payload: { name } });
   };
 
-  render() {
-    const { name } = this.state;
-
-    return (
-      <div>
-        <h2>Delete Policy Form</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            onChange={this.handleChange}
-            name="name"
-            placeholder="Name"
-            type="text"
-            value={name}
-          />
-          <input type="submit" value="Delete Policy Form" />
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h2>Delete Policy Form</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={(e) => setName(e.target.value)}
+          name="name"
+          placeholder="Name"
+          type="text"
+          value={name}
+        />
+        <input type="submit" value="Delete Policy Form" />
+      </form>
+    </div>
+  );
+};
 
 export default DeletePolicyForm;
