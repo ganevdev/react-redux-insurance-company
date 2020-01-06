@@ -20,10 +20,20 @@ const App = () => {
     <Provider store={store}>
       <div className="App">
         <h1>React Redux Insurance Company</h1>
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '720px',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+          }}
+        >
+          <CreatePolicyFormContainer />
+          <DeletePolicyFormContainer />
+          <CreateClaimFormContainer />
+        </div>
         <MainInfoContainer />
-        <CreatePolicyFormContainer />
-        <DeletePolicyFormContainer />
-        <CreateClaimFormContainer />
       </div>
     </Provider>
   );

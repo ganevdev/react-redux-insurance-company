@@ -27,8 +27,14 @@ class CreatePolicyForm extends Component {
 
     return (
       <div>
-        <h2>Create Policy Form</h2>
-        <form onSubmit={this.handleSubmit}>
+        <h4>Create Policy Form</h4>
+        <form
+          onSubmit={this.handleSubmit}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           <input
             onChange={this.handleChange}
             name="name"
