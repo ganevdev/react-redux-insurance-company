@@ -1,57 +1,40 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-class CreateClaimForm extends Component {
-  state = {
-    name: '',
-    amountOfMoneyToCollect: 0,
-  };
+import { createClaim } from '../actions/insurance-actions';
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+const CreateClaimForm = () => {
+  const [name, setName] = useState('');
+  const [amountOfMoneyToCollect, setAmountOfMoneyToCollect] = useState(0);
+  const dispatch = useDispatch();
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    const { createClaim } = this.props;
-
-    if (createClaim) {
-      createClaim(this.state);
-    }
-
-    this.setState({
-      name: '',
-      amountOfMoneyToCollect: 0,
-    });
+    dispatch(createClaim({ name, amountOfMoneyToCollect }));
   };
 
-  render() {
-    let { name, amountOfMoneyToCollect } = this.state;
-
-    return (
-      <div>
-        <h2>Create Claim Form</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            onChange={this.handleChange}
-            name="name"
-            placeholder="Name"
-            type="text"
-            value={name}
-          />
-          <input
-            onChange={this.handleChange}
-            name="amountOfMoneyToCollect"
-            placeholder={0}
-            type="number"
-            value={amountOfMoneyToCollect}
-          />
-          <input type="submit" value="Create New Claim Form" />
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h2>Create Claim Form</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={(e) => setName(e.target.value)}
+          name="name"
+          placeholder="Name"
+          type="text"
+          value={name}
+        />
+        <input
+          onChange={(e) => setAmountOfMoneyToCollect(e.target.value)}
+          name="amountOfMoneyToCollect"
+          placeholder={0}
+          type="number"
+          value={amountOfMoneyToCollect}
+        />
+        <input type="submit" value="Create New Claim Form" />
+      </form>
+    </div>
+  );
+};
 
 export default CreateClaimForm;

@@ -1,46 +1,31 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-class CreatePolicyForm extends Component {
-  state = {
-    name: '',
-  };
+import { createPolicy } from '../actions/insurance-actions';
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+const CreatePolicyForm = () => {
+  const [name, setName] = useState('');
+  const dispatch = useDispatch();
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    const { createPolicy } = this.props;
-
-    if (createPolicy) createPolicy(this.state);
-
-    this.setState({
-      name: '',
-    });
+    dispatch(createPolicy({ name }));
   };
-
-  render() {
-    const { name } = this.state;
-
-    return (
-      <div>
-        <h2>Create Policy Form</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            onChange={this.handleChange}
-            name="name"
-            placeholder="Name"
-            type="text"
-            value={name}
-          />
-          <input type="submit" value="Create New Policy Form" />
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h2>Create Policy Form</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={(e) => setName(e.target.value)}
+          name="name"
+          placeholder="Name"
+          type="text"
+          value={name}
+        />
+        <input type="submit" value="Create New Policy Form" />
+      </form>
+    </div>
+  );
+};
 
 export default CreatePolicyForm;

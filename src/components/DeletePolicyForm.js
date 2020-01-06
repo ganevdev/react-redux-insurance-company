@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { deletePolicy } from '../actions/insurance-actions';
+
 const DeletePolicyForm = () => {
   const [name, setName] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch({ type: 'DELETE_POLICY', payload: { name } });
+    dispatch(deletePolicy({ name }));
   };
 
   return (

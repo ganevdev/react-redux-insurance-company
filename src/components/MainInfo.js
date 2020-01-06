@@ -10,6 +10,7 @@ const MainInfo = () => {
   const accounting = useSelector((state) => state.accounting);
   const claimsHistory = useSelector((state) => state.claimsHistory);
   const policies = useSelector((state) => state.policies);
+
   return (
     <div>
       <h2>Main Info:</h2>

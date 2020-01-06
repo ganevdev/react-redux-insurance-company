@@ -5,13 +5,12 @@ export const DELETE_POLICY = 'DELETE_POLICY';
 /**
  * createClaim
  */
-export const createClaim = (data) => {
-  const amountOfMoneyToCollect = Number(data.amountOfMoneyToCollect);
+export const createClaim = ({ name, amountOfMoneyToCollect }) => {
   return {
     type: CREATE_CLAIM,
     payload: {
-      name: data.name,
-      amountOfMoneyToCollect: amountOfMoneyToCollect,
+      name: name,
+      amountOfMoneyToCollect: Number(amountOfMoneyToCollect),
     },
   };
 };
@@ -19,11 +18,11 @@ export const createClaim = (data) => {
 /**
  * createPolicy
  */
-export const createPolicy = (data) => {
+export const createPolicy = ({ name }) => {
   return {
     type: CREATE_POLICY,
     payload: {
-      name: data.name,
+      name: name,
       amount: 20,
     },
   };
@@ -32,11 +31,11 @@ export const createPolicy = (data) => {
 /**
  * deletePolicy
  */
-export const deletePolicy = (data) => {
+export const deletePolicy = ({ name }) => {
   return {
     type: DELETE_POLICY,
     payload: {
-      name: data.name,
+      name: name,
     },
   };
 };
